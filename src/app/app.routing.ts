@@ -13,6 +13,18 @@ import { RouterModule } from '@angular/router';
         path: 'roles',
         loadChildren: 'app/views/roles/roles.module#RolesModule'
       },
+      {
+        path: 'professions',
+        loadChildren: 'app/views/professions/professions.module#ProfessionsModule'
+      },
+      {
+        path: 'regions',
+        loadChildren: 'app/views/regions/regions.module#RegionsModule'
+      },
+      {
+        path: 'provinces',
+        loadChildren: 'app/views/provinces/provinces.module#ProvincesModule'
+      },
       { path: '**', redirectTo: 'users' }
     ])
   ],

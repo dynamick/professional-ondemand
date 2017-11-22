@@ -65,6 +65,7 @@ export class UsersService {
             return d.id === newUser.id;
           });
           this.store.users[index] = newUser;
+          this.reset();
         }
       );
   }
