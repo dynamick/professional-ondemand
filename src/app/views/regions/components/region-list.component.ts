@@ -6,9 +6,9 @@ import { Region } from '../model/region';
   template: `
     <h1>lista regioni</h1>
     <ul class="list-group">
-      <li *ngFor="let p of regions" class="list-group-item">
-        <a href="" (click)="editHandler(p, $event)">{{p.name}}</a>
-        <a href="" (click)="deleteHandler(p, $event)">Delete</a>
+      <li *ngFor="let r of regions" class="list-group-item">
+        <a href="" (click)="editHandler(r, $event)">{{r.name}}</a>
+        <a href="" (click)="deleteHandler(r, $event)">Delete</a>
       </li>
     </ul>
   `,
