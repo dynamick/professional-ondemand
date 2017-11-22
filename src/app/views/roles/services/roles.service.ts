@@ -65,6 +65,7 @@ export class RolesService {
             return d.id === newRole.id;
           });
           this.store.roles[index] = newRole;
+          this.reset();
         }
       );
   }
