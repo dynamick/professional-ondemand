@@ -9,6 +9,10 @@ import { RouterModule } from '@angular/router';
         path: 'users',
         loadChildren: 'app/views/users/users.module#UsersModule'
       },
+      {
+        path: 'professions',
+        loadChildren: 'app/views/professions/professions.module#ProfessionsModule'
+      },
       { path: '**', redirectTo: 'users' }
     ])
   ],
