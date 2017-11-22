@@ -13,6 +13,10 @@ import { RouterModule } from '@angular/router';
         path: 'professions',
         loadChildren: 'app/views/professions/professions.module#ProfessionsModule'
       },
+      {
+        path: 'regions',
+        loadChildren: 'app/views/regions/regions.module#RegionsModule'
+      },
       { path: '**', redirectTo: 'users' }
     ])
   ],
