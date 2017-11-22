@@ -75,14 +75,16 @@ export class RolesService {
    * @param {User} user
    */
   delete(role: Role) {
-    this.http.delete(`${env.baseUrl}/roles/${role.id}`)
-      .subscribe(
-        () => {
-          const index = this.store.roles.indexOf(role);
-          this.store.roles.splice(index, 1);
-          this.reset();
-        }
-      );
+    if (confirm('Sei sicuro?') {
+      this.http.delete(`${env.baseUrl}/roles/${role.id}`)
+        .subscribe(
+          () => {
+            const index = this.store.roles.indexOf(role);
+            this.store.roles.splice(index, 1);
+            this.reset();
+          }
+        );
+    }
   }
 
   /**

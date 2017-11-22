@@ -5,16 +5,27 @@ import { RolesService } from './services/roles.service';
 @Component({
   selector: 'app-users-view',
   template: `
-      <app-role-form
-        [active]="store.active"
-        (reset)="actions.reset()"
-        (save)="actions.save($event)"></app-role-form>
-      <hr>
-      <app-roles-list
-        [roles]="store.roles"
-        [active]="store.active"
-        (edit)="actions.setActiveHandler($event)"
-        (delete)="actions.delete($event)"></app-roles-list>`
+
+    <div class="container mt-5">
+      
+      <div class="row">
+        <div class="col">
+          <app-roles-list
+            [roles]="store.roles"
+            [active]="store.active"
+            (edit)="actions.setActiveHandler($event)"
+            (delete)="actions.delete($event)"></app-roles-list>
+        </div>
+        <div class="col-8">
+          <app-role-form
+            [active]="store.active"
+            (reset)="actions.reset()"
+            (save)="actions.save($event)"></app-role-form>
+        </div>
+      </div>
+    </div>
+    `
+
 })
 export class UsersViewComponent {
   constructor(

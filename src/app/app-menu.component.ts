@@ -39,6 +39,9 @@ import { Component } from '@angular/core';
         <li class="nav-item"  routerLink="/roles" routerLinkActive="active">
           <a class="nav-link" href="javascript:;">Ruoli</a>
         </li>
+        <li class="nav-item"  routerLink="/professions" routerLinkActive="active">
+          <a class="nav-link" href="javascript:;">Professioni</a>
+        </li>
         <li class="nav-item"  routerLink="/locations" routerLinkActive="active">
           <a class="nav-link" href="javascript:;">Regioni/Provincie</a>
         </li>
