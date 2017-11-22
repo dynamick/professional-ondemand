@@ -9,6 +9,10 @@ import { RouterModule } from '@angular/router';
         path: 'users',
         loadChildren: 'app/views/users/users.module#UsersModule'
       },
+      {
+        path: 'roles',
+        loadChildren: 'app/views/roles/roles.module#RolesModule'
+      },
       { path: '**', redirectTo: 'users' }
     ])
   ],
