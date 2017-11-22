@@ -65,6 +65,7 @@ export class ProfessionsService {
             return d.id === newProfession.id;
           });
           this.store.professions[index] = newProfession;
+          this.reset();
         }
       );
   }
