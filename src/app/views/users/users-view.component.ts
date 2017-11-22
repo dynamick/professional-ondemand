@@ -14,7 +14,7 @@ import { UsersService } from './services/users.service';
       <app-users-list
         [users]="store.users"
         [active]="store.active"
-        (editContent)="actions.setActiveHandler($event)"
+        (edit)="actions.setActiveHandler($event)"
         (delete)="actions.delete($event)"></app-users-list>`
 })
 export class UsersViewComponent {
@@ -24,4 +24,5 @@ export class UsersViewComponent {
   ) {
     this.actions.getAll();
   }
+
 }

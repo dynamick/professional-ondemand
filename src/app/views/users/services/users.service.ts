@@ -45,8 +45,7 @@ export class UsersService {
     this.http.post(`${env.baseUrl}/users`, user)
       .subscribe(res => {
         this.store.users.push(res as User);
-        this.store.active = res;
-        // this.reset();
+        this.reset();
       });
   }
 

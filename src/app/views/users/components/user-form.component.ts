@@ -33,13 +33,6 @@ import { User } from '../model/user';
           {{active?.id ? 'SAVE' : 'ADD'}}
         </button>
 
-        <button
-          class="btn btn-default"
-          type="button"
-          *ngIf="active?.id"
-          (click)="reset.emit(f);">
-          ADD NEW
-        </button>
 
       </div>
     </form>
