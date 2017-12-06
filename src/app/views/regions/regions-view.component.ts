@@ -6,16 +6,24 @@ import { RegionsService } from './services/regions.service';
   selector: 'app-regions-view',
   template: `
 
-      <app-region-form
-        [active]="store.active"
-        (reset)="actions.reset()"
-        (save)="actions.save($event)"></app-region-form>
-      <hr>
-      <app-regions-list
-        [regions]="store.regions"
-        [active]="store.active"
-        (edit)="actions.setActiveHandler($event)"
-        (delete)="actions.delete($event)"></app-regions-list>`
+      <div class="container mt-5">
+  
+        <div class="row">
+          <div class="col">
+            <app-regions-list
+              [regions]="store.regions"
+              [active]="store.active"
+              (edit)="actions.setActiveHandler($event)"
+              (delete)="actions.delete($event)"></app-regions-list>
+          </div>
+          <div class="col-8">
+            <app-region-form
+              [active]="store.active"
+              (reset)="actions.reset()"
+              (save)="actions.save($event)"></app-region-form>  
+          </div>
+        </div>
+      </div>`
 })
 export class RegionsViewComponent {
   constructor(
