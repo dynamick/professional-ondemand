@@ -42,7 +42,7 @@ import { Component } from '@angular/core';
         <li class="nav-item"  routerLink="/professions" routerLinkActive="active">
           <a class="nav-link" href="javascript:;">Professioni</a>
         </li>
-        <li class="nav-item"  routerLink="/locations" routerLinkActive="active">
+        <li class="nav-item"  routerLink="/regions" routerLinkActive="active">
           <a class="nav-link" href="javascript:;">Regioni/Provincie</a>
         </li>
         <!--<li class="nav-item dropdown">

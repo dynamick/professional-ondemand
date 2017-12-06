@@ -6,7 +6,7 @@ import { Region } from '../model/region';
   template: `
     <ul class="list-group">
       <li *ngFor="let r of regions" class="list-group-item d-flex">
-        <a href="" (click)="editHandler(r, $event)">{{r.name}}</a>
+        <a href="" routerLink="/regions/{{r.id}}" routerLinkActive="active" >{{r.name}}</a>
         <a href="" class="ml-auto" (click)="deleteHandler(r, $event)"><i class="fa fa-times"></i></a>
       </li>
     </ul>

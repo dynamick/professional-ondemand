@@ -9,13 +9,14 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import { RegionsModule } from '../regions/regions.module';
 import { ProvincesModule } from '../provinces/provinces.module';
+import {RegionsViewComponent} from "../regions/regions-view.component";
 
 @NgModule({
   declarations: [
-    LocationsViewComponent// , LocationListComponent, LocationFormComponent
+    LocationsViewComponent//// , LocationListComponent, LocationFormComponent
   ],
   imports: [
-    locations_routing, CommonModule, FormsModule, RegionsModule, ProvincesModule
+    locations_routing, CommonModule, FormsModule//, RegionsModule //, ProvincesModule
   ],
   providers: [
     // LocationsService, LocationsStore

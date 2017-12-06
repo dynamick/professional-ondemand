@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProvincesStore } from './services/provinces.store';
 import { ProvincesService } from './services/provinces.service';
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-provinces-view',
@@ -17,12 +18,20 @@ import { ProvincesService } from './services/provinces.service';
         (edit)="actions.setActiveHandler($event)"
         (delete)="actions.delete($event)"></app-provinces-list>`
 })
-export class ProvincesViewComponent {
+export class ProvincesViewComponent implements OnInit {
   constructor(
     public store: ProvincesStore,
-    public actions: ProvincesService,
+    public service: ProvincesService,
+    private route: ActivatedRoute
   ) {
-    this.actions.getAll();
   }
+
+  ngOnInit(): void {
+    console.log(this.route);
+    this.route.params.subscribe(params => {
+      this.service.getProvinces( params['id'] );
+    });
+  }
+
 
 }

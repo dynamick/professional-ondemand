@@ -25,6 +25,11 @@ export class ProvincesService {
       .subscribe(result => this.store.provinces = result);
   }
 
+  getProvinces(region_id: Number) {
+    this.http.get<Province[]>(`${env.baseUrl}/regions/${region_id}/provinces`)
+      .subscribe(result => this.store.provinces = result);
+  }
+
   /**
    * Save element (add or edit)
    * @param f

@@ -25,6 +25,18 @@ export class RegionsService {
       .subscribe(result => this.store.regions = result);
   }
 
+
+  /**
+   * Get active element
+   * @param {id} Number
+   */
+  getRegion(id: Number) {
+    this.http.get<Region[]>(`${env.baseUrl}/regions/${id}`)
+      .subscribe(result => {
+          this.store.active = result;
+      });
+  }
+
   /**
    * Save element (add or edit)
    * @param f
