@@ -4,11 +4,10 @@ import { Region } from '../model/region';
 @Component({
   selector: 'app-regions-list',
   template: `
-    <h1>lista regioni</h1>
     <ul class="list-group">
-      <li *ngFor="let r of regions" class="list-group-item">
+      <li *ngFor="let r of regions" class="list-group-item d-flex">
         <a href="" (click)="editHandler(r, $event)">{{r.name}}</a>
-        <a href="" (click)="deleteHandler(r, $event)">Delete</a>
+        <a href="" class="ml-auto" (click)="deleteHandler(r, $event)"><i class="fa fa-times"></i></a>
       </li>
     </ul>
   `,

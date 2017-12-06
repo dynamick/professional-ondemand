@@ -75,7 +75,7 @@ export class RolesService {
    * @param {User} user
    */
   delete(role: Role) {
-    if (confirm('Sei sicuro?') {
+    if (confirm('Sei sicuro?')) {
       this.http.delete(`${env.baseUrl}/roles/${role.id}`)
         .subscribe(
           () => {
