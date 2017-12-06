@@ -21,6 +21,10 @@ import { RouterModule } from '@angular/router';
         path: 'provinces',
         loadChildren: 'app/views/provinces/provinces.module#ProvincesModule'
       },
+      {
+        path: 'locations',
+        loadChildren: 'app/views/locations/locations.module#LocationsModule'
+      },
       { path: '**', redirectTo: 'users' }
     ])
   ],
