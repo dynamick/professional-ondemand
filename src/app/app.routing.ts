@@ -6,8 +6,16 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule.forRoot([
       {
+        path: '',
+        loadChildren: 'app/views/welcome/welcome.module#WelcomeModule'
+      },
+      {
         path: 'users',
         loadChildren: 'app/views/users/users.module#UsersModule'
+      },
+      {
+        path: 'roles',
+        loadChildren: 'app/views/roles/roles.module#RolesModule'
       },
       {
         path: 'professions',
