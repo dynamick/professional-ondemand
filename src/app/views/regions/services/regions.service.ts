@@ -54,11 +54,17 @@ export class RegionsService {
    * @param {Region} Region
    */
   add(region: Region) {
-    this.http.post(`${env.baseUrl}/regions`, region)
-      .subscribe(res => {
-        this.store.regions.push(res as Region);
-        this.reset();
-      });
+
+    let promise = new Promise((resolve, reject) => {
+      // assuming some third-party API, that is *not* a Promise Object
+      // but fires a callback once finished
+      this.http.post(`${env.baseUrl}/regions`, region)
+        .subscribe(res => {
+          this.store.regions.push(res as Region);
+          resolve(res);
+        });
+    });
+    return promise;
   }
 
   /**
@@ -77,7 +83,7 @@ export class RegionsService {
             return d.id === newRegion.id;
           });
           this.store.regions[index] = newRegion;
-          this.reset();
+          //this.reset();
         }
       );
   }
@@ -103,6 +109,7 @@ export class RegionsService {
    */
   setActiveHandler(region: Region) {
     this.store.active = Object.assign({}, region);
+    console.dir(this.store.active);
   }
 
   /**
@@ -111,5 +118,6 @@ export class RegionsService {
    */
   reset() {
     this.store.active = INITIAL_STATE;
+    console.dir(this.store.active);
   }
 }

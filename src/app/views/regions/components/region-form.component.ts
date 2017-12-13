@@ -15,7 +15,7 @@ import { RegionsService } from '../services/regions.service';
 
     <div class="card">
       <div class="card-header">
-        Provincia {{store.active.name}}
+        Regione {{store.active?.name}}
       </div>
       <div class="card-body">
         <form novalidate
@@ -46,9 +46,6 @@ import { RegionsService } from '../services/regions.service';
   `
 })
 export class RegionFormComponent implements OnInit {
-  @Output() save: EventEmitter<any> = new EventEmitter();
-  @Output() reset: EventEmitter<any> = new EventEmitter();
-
   constructor( private route: ActivatedRoute,
                public store: RegionsStore,
                public service: RegionsService) {
@@ -56,16 +53,16 @@ export class RegionFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.service.getRegion( params['id'] );
+      if ( params['id'] == 'add' ) {
+        this.service.reset();
+
+      } else {
+        this.service.getRegion(params['id']);
+      }
     });
   }
 
   saveHandler(form: NgForm) {
-    this.save.emit(form.value);
-    // if adding a new element
-    if (!this.store.active.id) {
-      // reset the form
-      form.reset();
-    }
+    this.service.save(form.value);
   }
 }

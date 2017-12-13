@@ -31,6 +31,17 @@ export class ProvincesService {
   }
 
   /**
+   * Get active element
+   * @param {id} Number
+   */
+  getProvince(id: Number) {
+    this.http.get<Province[]>(`${env.baseUrl}/provinces/${id}`)
+      .subscribe(result => {
+        this.store.active = result;
+      });
+  }
+
+  /**
    * Save element (add or edit)
    * @param f
    */

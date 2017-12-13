@@ -17,10 +17,6 @@ import { RegionsService } from './services/regions.service';
               (delete)="actions.delete($event)"></app-regions-list>
           </div>
           <div class="col-8">
-            <!--app-region-form
-              [active]="store.active"
-              (reset)="actions.reset()"
-              (save)="actions.save($event)"></app-region-form-->
             <router-outlet></router-outlet>
           </div>
         </div>

@@ -7,7 +7,7 @@ import { Province } from '../model/province';
     <h1>lista provincie</h1>
     <ul class="list-group">
       <li *ngFor="let p of provinces" class="list-group-item">
-        <a href="" (click)="editHandler(p, $event)">{{p.name}}</a>
+        <a routerLink="provinces/{{p.id}}" routerLinkActive="text-danger" >{{p.name}}</a>
         <a href="" (click)="deleteHandler(p, $event)">Delete</a>
       </li>
     </ul>
@@ -17,7 +17,6 @@ import { Province } from '../model/province';
 export class ProvinceListComponent {
   @Input() provinces: Province[];
   @Input() active: Province;
-  @Output() edit: EventEmitter<Province> = new EventEmitter();
   @Output() delete: EventEmitter<Province> = new EventEmitter();
 
   deleteHandler(province: Province, e: MouseEvent) {
@@ -25,8 +24,4 @@ export class ProvinceListComponent {
     this.delete.emit(province);
   }
 
-  editHandler(province: Province, e: MouseEvent) {
-    e.preventDefault();
-    this.edit.emit(province);
-  }
 }

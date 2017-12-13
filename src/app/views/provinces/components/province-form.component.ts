@@ -1,8 +1,10 @@
 import {
-  Component, EventEmitter, Input, Output
+  Component, EventEmitter, Input, Output, OnInit
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Province } from '../model/province';
+import {ActivatedRoute, Params} from '@angular/router';
+import { ProvincesStore } from '../services/provinces.store';
+import { ProvincesService } from '../services/provinces.service';
 
 @Component({
   selector: 'app-province-form',
@@ -12,7 +14,7 @@ import { Province } from '../model/province';
           #f="ngForm">
 
       <input type="text"
-             [ngModel]="active?.name"
+             [ngModel]="store.active?.name"
              name="name"
              required
              class="form-control"
@@ -23,7 +25,7 @@ import { Province } from '../model/province';
         <button class="btn btn-primary"
                 type="submit"
                 [disabled]="f.invalid">
-          {{active?.id ? 'SAVE' : 'ADD'}}
+          {{store.active?.id ? 'SAVE' : 'ADD'}}
         </button>
 
 
@@ -31,17 +33,19 @@ import { Province } from '../model/province';
     </form>
   `
 })
-export class ProvinceFormComponent {
-  @Input() active: Province;
-  @Output() save: EventEmitter<any> = new EventEmitter();
-  @Output() reset: EventEmitter<any> = new EventEmitter();
+export class ProvinceFormComponent implements OnInit {
+  constructor( private route: ActivatedRoute,
+               public store: ProvincesStore,
+               public service: ProvincesService) {
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.service.getProvince( params['id'] );
+    });
+  }
 
   saveHandler(form: NgForm) {
-    this.save.emit(form.value);
-    // if adding a new element
-    if (!this.active.id) {
-      // reset the form
-      form.reset();
-    }
+    this.service.save(form.value);
   }
 }
